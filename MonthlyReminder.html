@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+  
+      th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+    </style>
+</head>
+<body>
+
+    <p>Hi, {{email}},</p>
+    <p>This email is about your activities in last month.</p>
+    <table>
+        <thead>
+          <tr>
+            <th>Sr. No</th>
+            <th>Show Name</th>
+            <th>Total Bookings</th>
+            <th>Total Amount Spent</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for sn in data %}
+              <tr>
+                <td>{{ sn }}</td>
+                <td>{{ data[sn]['name'] }}</td>
+                <td>{{ data[sn]['total_bookings'] }}</td>
+                <td>{{ data[sn]['total_amount_spent'] }}</td>
+              </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+    <p>Regards,</p>
+    <p>Ticket Show team.</p>
+</body>
+</html>
